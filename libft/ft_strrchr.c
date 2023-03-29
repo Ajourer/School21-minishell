@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_pwd.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagrivan <nagrivan@21-school.ru>           +#+  +:+       +#+        */
+/*   By: ralverta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:11:11 by nagrivan          #+#    #+#             */
-/*   Updated: 2021/12/02 14:44:32 by nagrivan         ###   ########.fr       */
+/*   Created: 2020/11/07 23:37:27 by ralverta          #+#    #+#             */
+/*   Updated: 2020/11/08 19:11:16 by ralverta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "libft.h"
 
-int	my_pwd(void)
+char	*ft_strrchr(char *s, int c)
 {
-	char	*pwd;
+	int	i;
 
-	pwd = NULL;
-	pwd = getcwd(pwd, 1024);
-	if (!pwd)
-		return (1);
-	ft_putendl_fd(pwd, 1);
-	free(pwd);
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return (&(s[i]));
+		i--;
+	}
+	return (NULL);
 }

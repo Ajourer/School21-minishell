@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_pwd.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagrivan <nagrivan@21-school.ru>           +#+  +:+       +#+        */
+/*   By: ralverta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:11:11 by nagrivan          #+#    #+#             */
-/*   Updated: 2021/12/02 14:44:32 by nagrivan         ###   ########.fr       */
+/*   Created: 2020/11/20 20:00:20 by ralverta          #+#    #+#             */
+/*   Updated: 2020/11/21 16:20:00 by ralverta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "libft.h"
 
-int	my_pwd(void)
+t_list	*ft_lstnew(void *content)
 {
-	char	*pwd;
+	t_list	*node;
 
-	pwd = NULL;
-	pwd = getcwd(pwd, 1024);
-	if (!pwd)
-		return (1);
-	ft_putendl_fd(pwd, 1);
-	free(pwd);
-	return (0);
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

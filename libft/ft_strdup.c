@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_env.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagrivan <nagrivan@21-school.ru>           +#+  +:+       +#+        */
+/*   By: ralverta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:15:04 by nagrivan          #+#    #+#             */
-/*   Updated: 2021/12/02 14:44:43 by nagrivan         ###   ########.fr       */
+/*   Created: 2020/11/12 17:18:01 by ralverta          #+#    #+#             */
+/*   Updated: 2020/11/19 20:46:38 by ralverta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "libft.h"
 
-int	my_env(t_all *all)
+char	*ft_strdup(const char *s1)
 {
+	char	*s2;
+	int		len;
 	int		i;
 
 	i = 0;
-	if ((num_argv(all->argv)) != 1)
+	len = 0;
+	while (s1[len])
+		len++;
+	s2 = (char *)malloc(len + 1);
+	if (!s2)
+		return (NULL);
+	while (i < len)
 	{
-		printf("env: %s: No such file or directory\n", all->argv[1]);
-		return (127);
-	}
-	while (all->env[i])
-	{
-		if ((ft_strchr(all->env[i], '=')))
-			ft_putendl_fd(all->env[i], 1);
+		s2[i] = s1[i];
 		i++;
 	}
-	return (0);
+	s2[i] = '\0';
+	return (s2);
 }

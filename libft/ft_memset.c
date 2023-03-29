@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_pwd.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagrivan <nagrivan@21-school.ru>           +#+  +:+       +#+        */
+/*   By: ralverta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:11:11 by nagrivan          #+#    #+#             */
-/*   Updated: 2021/12/02 14:44:32 by nagrivan         ###   ########.fr       */
+/*   Created: 2020/10/29 12:37:40 by ralverta          #+#    #+#             */
+/*   Updated: 2020/11/19 20:46:17 by ralverta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "libft.h"
 
-int	my_pwd(void)
+void	*ft_memset(void *dest, int c, size_t len)
 {
-	char	*pwd;
+	size_t	i;
+	char	*y;
 
-	pwd = NULL;
-	pwd = getcwd(pwd, 1024);
-	if (!pwd)
-		return (1);
-	ft_putendl_fd(pwd, 1);
-	free(pwd);
-	return (0);
+	i = 0;
+	y = (char *)dest;
+	while (i < len)
+	{
+		y[i] = (char)c;
+		++i;
+	}
+	return (dest);
 }

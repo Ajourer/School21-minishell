@@ -1,0 +1,8 @@
+*DS_Store
+*json
+*.vscode
+*.objs
+*minishell
+*nfo*
+*.o
+libft/libft.a
